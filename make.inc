@@ -11,7 +11,6 @@ SHELL = /bin/sh
 #
 #  The machine (platform) identifier to append to the library names
 #
-# WA for WebAssembly
 PLAT = _WA
 #  
 #  Modify the FORTRAN and OPTS definitions to refer to the
@@ -22,12 +21,11 @@ PLAT = _WA
 #
 #######################################################
 # This is used to compile C libary
-#CC        = gcc  # inherit $CC from emmake
+# CC        = gcc
 # if no wrapping of the blas library is needed, uncomment next line
-#CC        = gcc -DNO_BLAS_WRAP
-CFLAGS    = -O3 -I$(TOPDIR)/INCLUDE
-LDFLAGS	  = -O3
-LOADER    = $(CC)
+CC        = gcc -DNO_BLAS_WRAP
+CFLAGS    = -O3 -I$(TOPDIR)/INCLUDE  -fPIC
+LOADER    = gcc
 LOADOPTS  =
 NOOPT     = -O0 -I$(TOPDIR)/INCLUDE
 DRVCFLAGS = $(CFLAGS)
@@ -60,7 +58,7 @@ RANLIB   = ranlib
 #  The target's machine-specific, optimized BLAS library should be
 #  used whenever possible.
 #
-BLASLIB      = ../../blas$(PLAT).bc
+BLASLIB      = ../../blas$(PLAT).a
 #
 #  Location of the extended-precision BLAS (XBLAS) Fortran library
 #  used for building and testing extended-precision routines.  The
@@ -73,9 +71,8 @@ XBLASLIB     =
 #
 #  Names of generated libraries.
 #
-LAPACKLIB    = lapack$(PLAT).bc
-F2CLIB       = ../../F2CLIBS/libf2c.bc
-TMGLIB       = tmglib$(PLAT).bc
-EIGSRCLIB    = eigsrc$(PLAT).bc
-LINSRCLIB    = linsrc$(PLAT).bc
-F2CLIB		 = ../../F2CLIBS/libf2c.bc
+LAPACKLIB    = lapack$(PLAT).a
+F2CLIB       = ../../F2CLIBS/libf2c.a
+TMGLIB       = tmglib$(PLAT).a
+EIGSRCLIB    = eigsrc$(PLAT).a
+LINSRCLIB    = linsrc$(PLAT).a

@@ -5,10 +5,10 @@ include $(TOPDIR)/make.inc
 #  This is the makefile to create a wrapper for the CBLAS.
 #######################################################################
 
-all: libcblaswr.bc
+all: libcblaswr.a
 
-libcblaswr.bc: cblaswr.o
-	$(LD) $(LDFLAGS) -o $@ $?
+libcblaswr.a: cblaswr.o
+	$(CC) $(LDFLAGS) -o $@ $?
 
 libfblaswr.a: fblaswr.o
 	$(ARCH) $(ARCHFLAGS) libfblaswr.a fblaswr.o

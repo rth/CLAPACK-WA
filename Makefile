@@ -6,7 +6,7 @@
 
 include make.inc
 
-all: f2clib cblaswrap lib
+all: f2clib lib
 #all: f2clib lapack_install lib lapack_testing blas_testing variants_testing
 
 #lib: lapacklib tmglib
@@ -23,12 +23,12 @@ blaslib:
 	( cd BLAS/SRC; $(MAKE) )
 
 cblaswrap: 
-	( cd BLAS/WRAP; $(MAKE) libcblaswr.bc; cp libcblaswr.bc ../.. )
+	( cd BLAS/WRAP; $(MAKE) libcblaswr.a; cp libcblaswr.a ../.. )
 
 fblaswrap: 
 	( cd BLAS/WRAP; $(MAKE) libfblaswr.a; cp libfblaswr.a ../.. )
 
-lapacklib:
+lapacklib: lapack_install
 	( cd SRC; $(MAKE) )
 
 variants:
