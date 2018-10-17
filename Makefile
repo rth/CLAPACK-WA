@@ -6,7 +6,7 @@
 
 include make.inc
 
-all: f2clib cblaswrap lib
+all: f2clib lib
 #all: f2clib lapack_install lib lapack_testing blas_testing variants_testing
 
 #lib: lapacklib tmglib
