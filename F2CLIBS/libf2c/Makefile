@@ -75,8 +75,9 @@ all: f2c.h signal1.h sysdep1.h libf2c.a libf2c.so clapack_install
 libf2c.a: $(OFILES)
 	ar r libf2c.a $?
 	ranlib libf2c.a
-	#$(CC) -lm -u MAIN__ $(LDFLAGS) -o libf2c.a $?
 
+
+#$(CC) -lm -u MAIN__ $(LDFLAGS) -o libf2c.a $?
 ## Shared-library variant: the following rule works on Linux
 ## systems.  Details are system-dependent.  Under Linux, -fPIC
 ## must appear in the CFLAGS assignment when making libf2c.so.

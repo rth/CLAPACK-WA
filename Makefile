@@ -95,4 +95,4 @@ cleantesting:
 	( cd TESTING; rm -f xlin* xeig* )
 
 cleanall: cleanlib cleanblas_testing cleantesting 
-	rm -f *.a TESTING/*.out INSTALL/test*  BLAS/*.out
+	rm -f *.a *.so TESTING/*.out INSTALL/test*  BLAS/*.out
