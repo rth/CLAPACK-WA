@@ -6,7 +6,7 @@
 
 include make.inc
 
-all: f2clib cblaswrap lib
+all: f2clib lib
 #all: f2clib lapack_install lib lapack_testing blas_testing variants_testing
 
 #lib: lapacklib tmglib
@@ -95,4 +95,4 @@ cleantesting:
 	( cd TESTING; rm -f xlin* xeig* )
 
 cleanall: cleanlib cleanblas_testing cleantesting 
-	rm -f *.a TESTING/*.out INSTALL/test*  BLAS/*.out
+	rm -f *.bc TESTING/*.out INSTALL/test*  BLAS/*.out

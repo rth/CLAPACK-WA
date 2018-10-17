@@ -25,7 +25,7 @@ PLAT = _WA
 #CC        = gcc  # inherit $CC from emmake
 # if no wrapping of the blas library is needed, uncomment next line
 #CC        = gcc -DNO_BLAS_WRAP
-CFLAGS    = -O3 -I$(TOPDIR)/INCLUDE
+CFLAGS    = -O3 -I$(TOPDIR)/INCLUDE -fPIC -DNO_BLAS_WRAP
 LDFLAGS	  = -O3
 LOADER    = $(CC)
 LOADOPTS  =
@@ -78,4 +78,3 @@ F2CLIB       = ../../F2CLIBS/libf2c.bc
 TMGLIB       = tmglib$(PLAT).bc
 EIGSRCLIB    = eigsrc$(PLAT).bc
 LINSRCLIB    = linsrc$(PLAT).bc
-F2CLIB		 = ../../F2CLIBS/libf2c.bc
