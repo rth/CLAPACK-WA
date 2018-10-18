@@ -12,6 +12,7 @@ all: f2clib lib
 #lib: lapacklib tmglib
 #lib: f2clib lapacklib tmglib
 lib: f2clib blaslib lapacklib
+	cp F2CLIBS/libf2c.bc build/target/
 
 clean: cleanlib cleantesting cleanblas_testing 
 
