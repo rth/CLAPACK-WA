@@ -56,7 +56,7 @@ include $(TOPDIR)/make.inc
 #
 #######################################################################
 
-all: $(BLASLIB_SO)
+all: $(BLASLIB)
  
 #---------------------------------------------------------
 #  Comment out the next 6 definitions if you already have

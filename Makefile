@@ -7,6 +7,7 @@
 include make.inc
 
 all: f2clib lib
+	cp F2CLIBS/libf2c.a build/host/
 #all: f2clib lapack_install lib lapack_testing blas_testing variants_testing
 
 #lib: lapacklib tmglib
@@ -20,7 +21,7 @@ lapack_install:
 	  ./testdlamch; ./testsecond; ./testdsecnd; ./testversion )
 
 blaslib:
-	( cd BLAS/SRC; $(MAKE) )
+	( mkdir -p build/host; cd BLAS/SRC; $(MAKE) )
 
 cblaswrap: 
 	( cd BLAS/WRAP; $(MAKE) libcblaswr.a; cp libcblaswr.a ../.. )
@@ -96,3 +97,4 @@ cleantesting:
 
 cleanall: cleanlib cleanblas_testing cleantesting 
 	rm -f *.a *.so TESTING/*.out INSTALL/test*  BLAS/*.out
+	rm -rf build/host/
