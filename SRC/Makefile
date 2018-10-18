@@ -369,7 +369,7 @@ ALLOBJ=$(SLASRC) $(DLASRC) $(CLASRC) $(ZLASRC) $(SCLAUX) $(DZLAUX)	\
 	$(ALLAUX)
 
 ../$(LAPACKLIB): $(ALLOBJ) $(ALLXOBJ)
-	$(CC) -shared -o $@ $(ALLOBJ) $(ALLXOBJ)
+	$(CC) -shared $(CFLAGS) -o $@ $(ALLOBJ) $(ALLXOBJ) ../F2CLIBS/libf2c.a
 
 single: $(SLASRC) $(ALLAUX) $(SCLAUX) 
 	$(ARCH) $(ARCHFLAGS) ../$(LAPACKLIB) $(SLASRC) $(ALLAUX) \

@@ -56,7 +56,7 @@ include $(TOPDIR)/make.inc
 #
 #######################################################################
 
-all: $(BLASLIB) $(BLASLIB_SO)
+all: $(BLASLIB_SO)
  
 #---------------------------------------------------------
 #  Comment out the next 6 definitions if you already have
@@ -143,7 +143,7 @@ $(BLASLIB): $(ALLOBJ)
 	$(RANLIB) $@
 
 $(BLASLIB_SO): $(ALLOBJ)
-	$(CC) -lm -shared -o $@ $(ALLOBJ) $(F2CLIB)
+	$(CC) -lm -shared $(CFLAGS) -o $@ $(ALLOBJ) $(F2CLIB)
 
 single: $(SBLAS1) $(ALLBLAS) $(SBLAS2) $(SBLAS3)
 	$(ARCH) $(ARCHFLAGS) $(BLASLIB) $(SBLAS1) $(ALLBLAS) \
