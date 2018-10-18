@@ -20,7 +20,7 @@ lapack_install:
 	  ./testdlamch; ./testsecond; ./testdsecnd; ./testversion )
 
 blaslib:
-	( cd BLAS/SRC; $(MAKE) )
+	( mkdir -p build/target/; cd BLAS/SRC; $(MAKE) )
 
 cblaswrap: 
 	( cd BLAS/WRAP; $(MAKE) libcblaswr.bc; cp libcblaswr.bc ../.. )
@@ -95,4 +95,5 @@ cleantesting:
 	( cd TESTING; rm -f xlin* xeig* )
 
 cleanall: cleanlib cleanblas_testing cleantesting 
-	rm -f *.a TESTING/*.out INSTALL/test*  BLAS/*.out
+	rm -f *.bc TESTING/*.out INSTALL/test*  BLAS/*.out
+	rm -rf build/target
